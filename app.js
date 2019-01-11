@@ -1,4 +1,5 @@
 const Telegraf = require('telegraf')
+const Telegram = require('telegraf/telegram')
 const express = require('express')
 const expressApp = express()
 const config = require('./config.json')
@@ -20,6 +21,7 @@ bot.command('toggle', (ctx) => {
   axios.post(`https://maker.ifttt.com/trigger/${config.ifttt.commands.toggle}/with/key/${config.ifttt.token}`, {})
   .then((response) => {
     debug(ctx.message.message_id)
+    Telegram.sendMessage(ctx.message.from.id, '操作完成。', {reply_to_message_id: ctx.message.message_id})
     // ctx.reply('操作完成。')
   })
   .catch((error) => {
