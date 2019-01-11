@@ -15,10 +15,10 @@ expressApp.get('/', (req, res) => {
 })
 
 bot.command('toggle', (ctx) => {
+  if (ctx.message.from.id !== config.telegram.myid) return
   debug(config.ifttt)
   axios.post(`https://maker.ifttt.com/trigger/${config.ifttt.commands.toggle}/with/key/${config.ifttt.token}`, {})
   .then((response) => {
-    debug(ctx.message.from.id)
     // ctx.reply('操作完成。')
   })
   .catch((error) => {
