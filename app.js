@@ -37,7 +37,7 @@ bot.command('brightness', (ctx) => {
   if (ctx.message.from.id !== config.telegram.myid) return
   let msg = ctx.message
   if (!msg.text.slice(13)){
-    bot.sendMessage(msg.from.id, '请在 /brightness 指令之后，加上 1~100 的亮度目标值。', {reply_to_message_id: msg.message_id})
+    tgctx.sendMessage(msg.from.id, '请在 /brightness 指令之后，加上 1~100 的亮度目标值。', {reply_to_message_id: msg.message_id})
     return
   }
   if (msg.text.slice(13) < 1 || msg.text.slice(13) > 100 || isNaN(parseInt(msg.text.slice(17)))) {
