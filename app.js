@@ -36,17 +36,17 @@ bot.command('toggle', (ctx) => {
 bot.command('brightness', (ctx) => {
   if (ctx.message.from.id !== config.telegram.myid) return
   let msg = ctx.message
-  if (!msg.text.slice(13)){
+  if (!msg.text.slice(12)){
     tgctx.sendMessage(msg.from.id, '请在 /brightness 指令之后，加上 1~100 的亮度目标值。', {reply_to_message_id: msg.message_id})
     return
   }
-  if (msg.text.slice(13) < 1 || msg.text.slice(13) > 100 || isNaN(parseInt(msg.text.slice(17)))) {
-    debug(msg.text.slice(13))
+  if (msg.text.slice(12) < 1 || msg.text.slice(12) > 100 || isNaN(parseInt(msg.text.slice(17)))) {
+    debug(msg.text.slice(12))
     tgctx.sendMessage(msg.from.id, `目标亮度不在 1~100 的范围内。`, {reply_to_message_id: msg.message_id})
     return
   }
   axios.post(`https://maker.ifttt.com/trigger/${config.ifttt.commands.brightness}/with/key/${config.ifttt.token}`, {
-    value1: msg.text.slice(13)
+    value1: msg.text.slice(12)
   })
   .then((response) => {
     debug(ctx.message.message_id)
