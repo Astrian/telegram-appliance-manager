@@ -40,7 +40,7 @@ bot.command('brightness', (ctx) => {
     tgctx.sendMessage(msg.from.id, '请在 /brightness 指令之后，加上 1~100 的亮度目标值。', {reply_to_message_id: msg.message_id})
     return
   }
-  if (msg.text.slice(12) < 1 || msg.text.slice(12) > 100 || isNaN(parseInt(msg.text.slice(17)))) {
+  if (msg.text.slice(12) < 1 || msg.text.slice(12) > 100 || isNaN(parseInt(msg.text.slice(12)))) {
     debug(msg.text.slice(12), msg.text.slice(12) < 1, msg.text.slice(12) > 100)
     tgctx.sendMessage(msg.from.id, `目标亮度不在 1~100 的范围内。`, {reply_to_message_id: msg.message_id})
     return
