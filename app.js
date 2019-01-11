@@ -15,7 +15,7 @@ expressApp.get('/', (req, res) => {
 })
 
 bot.command('toggle', (ctx) => {
-  debug(ifttt)
+  debug(config.ifttt)
   axios.post(`https://maker.ifttt.com/trigger/${config.ifttt.commands.toggle}/with/key/${config.ifttt.token}`, {})
   .then((response) => {
     (ctx) => ctx.reply('操作完成。')
