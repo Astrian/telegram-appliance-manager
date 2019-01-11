@@ -1,0 +1,16 @@
+{
+  "name": "telegram-appliance-manager",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Astrian Zheng",
+  "license": "MIT",
+  "dependencies": {
+    "debug": "^4.1.1",
+    "express": "^4.16.4",
+    "telegraf": "^3.26.0"
+  }
+}
