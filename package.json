@@ -4,7 +4,8 @@
   "description": "",
   "main": "app.js",
   "scripts": {
-    "test": "export DEBUG=telegram* && supervisor app.js"
+    "test": "export DEBUG=telegram* && supervisor app.js",
+    "start": "pm2 run app.js"
   },
   "author": "Astrian Zheng",
   "license": "MIT",

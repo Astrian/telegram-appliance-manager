@@ -50,7 +50,7 @@ bot.command('brightness', (ctx) => {
   })
   .then((response) => {
     debug(ctx.message.message_id)
-    tgctx.sendMessage(ctx.message.from.id, `操作完成，亮度已被调整至 。${msg.text.slice(12)}%。`, {reply_to_message_id: ctx.message.message_id})
+    tgctx.sendMessage(ctx.message.from.id, `操作完成，亮度已被调整至 ${msg.text.slice(12)}%。`, {reply_to_message_id: ctx.message.message_id})
   })
   .catch((error) => {
     tgctx.sendMessage(ctx.message.from.id, `出现错误：${error}`, {reply_to_message_id: ctx.message.message_id})
