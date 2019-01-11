@@ -1,0 +1,18 @@
+{
+  "name": "telegram-appliance-manager",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "export DEBUG=telegram* && supervisor app.js",
+    "start": "pm2 start app.js"
+  },
+  "author": "Astrian Zheng",
+  "license": "MIT",
+  "dependencies": {
+    "axios": "^0.18.0",
+    "debug": "^4.1.1",
+    "express": "^4.16.4",
+    "telegraf": "^3.26.0"
+  }
+}
