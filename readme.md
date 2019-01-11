@@ -7,5 +7,11 @@
 ```
 git clone https://github.com/Astrian/telegram-appliance-manager
 cd telegram-appliance-manager
-
+cp config.sample.json config.json
+vi config.json
+npm install
+npm install pm2 --global
+npm start
 ```
+
+记得去 [IFTTT](https://ifttt.com) 设置你的灯具 applet。
