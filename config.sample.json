@@ -1,7 +1,9 @@
 {
   "telegram": {
     "token": "12345678:ABCDEFGhigklmnOPQRSTuvwxyz12345",
-    "myid": 12345678
+    "myid": 12345678,
+    "domain": "https://example.com",
+    "path": "/your-secrect-path"
   },
   "ifttt": {
     "token": "asdfghjklzxcv",
