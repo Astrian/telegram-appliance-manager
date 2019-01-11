@@ -41,7 +41,8 @@ bot.command('brightness', (ctx) => {
     return
   }
   if (msg.text.slice(13) < 1 || msg.text.slice(13) > 100 || isNaN(parseInt(msg.text.slice(17)))) {
-    bot.sendMessage(msg.from.id, `目标亮度不在 1~100 的范围内。`, {reply_to_message_id: msg.message_id})
+    debug(msg.text.slice(13))
+    tgctx.sendMessage(msg.from.id, `目标亮度不在 1~100 的范围内。`, {reply_to_message_id: msg.message_id})
     return
   }
   axios.post(`https://maker.ifttt.com/trigger/${config.ifttt.commands.brightness}/with/key/${config.ifttt.token}`, {
