@@ -35,6 +35,7 @@ bot.command('toggle', (ctx) => {
 
 bot.command('brightness', (ctx) => {
   if (ctx.message.from.id !== config.telegram.myid) return
+  let msg = ctx.message.text
   if (!msg.text.slice(13)){
     reply = reply + '请在 /brightness 指令之后，加上 1~100 的亮度目标值。'
     bot.sendMessage(msg.from.id, reply, {reply_to_message_id: msg.message_id})
