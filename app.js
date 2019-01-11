@@ -8,6 +8,11 @@ const axios = require('axios')
 
 const bot = new Telegraf(config.telegram.token)
 
+const tgctx = new Telegram(config.telegram.token, {
+  agent: null,
+  webhookReply: true
+})
+
 expressApp.use(bot.webhookCallback('/kcmQPBWcBoyLNwdmQPMeXHgqekTqqzad'))
 bot.telegram.setWebhook('https://jdj.astrianzheng.cn/kcmQPBWcBoyLNwdmQPMeXHgqekTqqzad')
 
@@ -21,7 +26,7 @@ bot.command('toggle', (ctx) => {
   axios.post(`https://maker.ifttt.com/trigger/${config.ifttt.commands.toggle}/with/key/${config.ifttt.token}`, {})
   .then((response) => {
     debug(ctx.message.message_id)
-    Telegram.sendMessage(ctx.message.from.id, '操作完成。', {reply_to_message_id: ctx.message.message_id})
+    tgctx.sendMessage(ctx.message.from.id, '操作完成。', {reply_to_message_id: ctx.message.message_id})
     // ctx.reply('操作完成。')
   })
   .catch((error) => {
