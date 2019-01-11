@@ -1,0 +1,13 @@
+{
+  "telegram": {
+    "token": "12345678:ABCDEFGhigklmnOPQRSTuvwxyz12345",
+    "myid": 12345678
+  },
+  "ifttt": {
+    "token": "asdfghjklzxcv",
+    "commands": {
+      "toggle": "toggle",
+      "brightness": "brightness"
+    }
+  }
+}

@@ -13,8 +13,8 @@ const tgctx = new Telegram(config.telegram.token, {
   webhookReply: true
 })
 
-expressApp.use(bot.webhookCallback('/kcmQPBWcBoyLNwdmQPMeXHgqekTqqzad'))
-bot.telegram.setWebhook('https://jdj.astrianzheng.cn/kcmQPBWcBoyLNwdmQPMeXHgqekTqqzad')
+expressApp.use(bot.webhookCallback(config.telegram.path))
+bot.telegram.setWebhook(config.telegram.domain + config.telegram.path)
 
 expressApp.get('/', (req, res) => {
   res.send('What are you doing?')
