@@ -5,7 +5,7 @@
   "main": "app.js",
   "scripts": {
     "test": "export DEBUG=telegram* && supervisor app.js",
-    "start": "pm2 run app.js"
+    "start": "pm2 start app.js"
   },
   "author": "Astrian Zheng",
   "license": "MIT",
