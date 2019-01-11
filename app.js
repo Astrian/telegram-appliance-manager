@@ -18,7 +18,7 @@ bot.command('toggle', (ctx) => {
   debug(config.ifttt)
   axios.post(`https://maker.ifttt.com/trigger/${config.ifttt.commands.toggle}/with/key/${config.ifttt.token}`, {})
   .then((response) => {
-    debug(ctx.message)
+    debug(ctx.message.from.id)
     // ctx.reply('操作完成。')
   })
   .catch((error) => {
