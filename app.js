@@ -18,10 +18,10 @@ bot.command('toggle', (ctx) => {
   debug(config.ifttt)
   axios.post(`https://maker.ifttt.com/trigger/${config.ifttt.commands.toggle}/with/key/${config.ifttt.token}`, {})
   .then((response) => {
-    (ctx) => ctx.reply('操作完成。')
+    ctx.reply('操作完成。')
   })
   .catch((error) => {
-    (ctx) => ctx.reply(`出现错误：${error}`)
+    ctx.reply(`出现错误：${error}`)
   })
 })
 
