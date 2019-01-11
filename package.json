@@ -4,7 +4,7 @@
   "description": "",
   "main": "app.js",
   "scripts": {
-    "test": "export DEBUG=vgbaseserver* && supervisor app.js"
+    "test": "export DEBUG=telegram* && supervisor app.js"
   },
   "author": "Astrian Zheng",
   "license": "MIT",
