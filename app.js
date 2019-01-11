@@ -22,15 +22,37 @@ expressApp.get('/', (req, res) => {
 
 bot.command('toggle', (ctx) => {
   if (ctx.message.from.id !== config.telegram.myid) return
-  debug(config.ifttt)
+
   axios.post(`https://maker.ifttt.com/trigger/${config.ifttt.commands.toggle}/with/key/${config.ifttt.token}`, {})
   .then((response) => {
     debug(ctx.message.message_id)
     tgctx.sendMessage(ctx.message.from.id, '操作完成。', {reply_to_message_id: ctx.message.message_id})
-    // ctx.reply('操作完成。')
   })
   .catch((error) => {
-    ctx.reply(`出现错误：${error}`)
+    tgctx.sendMessage(ctx.message.from.id, `出现错误：${error}`, {reply_to_message_id: ctx.message.message_id})
+  })
+})
+
+bot.command('brightness', (ctx) => {
+  if (ctx.message.from.id !== config.telegram.myid) return
+  if (!msg.text.slice(13)){
+    reply = reply + '请在 /brightness 指令之后，加上 1~100 的亮度目标值。'
+    bot.sendMessage(msg.from.id, reply, {reply_to_message_id: msg.message_id})
+    return
+  }
+  if (msg.text.slice(13) < 1 || msg.text.slice(13) > 100 || isNaN(parseInt(msg.text.slice(17)))) {
+    bot.sendMessage(msg.from.id, `目标亮度不在 1~100 的范围内。`, {reply_to_message_id: msg.message_id})
+    return
+  }
+  axios.post(`https://maker.ifttt.com/trigger/${config.ifttt.commands.brightness}/with/key/${config.ifttt.token}`, {
+    value1: msg.text.slice(13)
+  })
+  .then((response) => {
+    debug(ctx.message.message_id)
+    tgctx.sendMessage(ctx.message.from.id, '操作完成。', {reply_to_message_id: ctx.message.message_id})
+  })
+  .catch((error) => {
+    tgctx.sendMessage(ctx.message.from.id, `出现错误：${error}`, {reply_to_message_id: ctx.message.message_id})
   })
 })
 
